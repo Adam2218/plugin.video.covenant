@@ -58,6 +58,9 @@ source = params.get('source')
 
 content = params.get('content')
 
+windowedtrailer = params.get('windowedtrailer')
+windowedtrailer = int(windowedtrailer) if windowedtrailer in ("0","1") else 0
+
 
 if action == None:
     from resources.lib.indexers import navigator
@@ -269,7 +272,7 @@ elif action == 'tvPlaycount':
 
 elif action == 'trailer':
     from resources.lib.modules import trailer
-    trailer.trailer().play(name, url)
+    trailer.trailer().play(name, url, windowedtrailer)
 
 elif action == 'traktManager':
     from resources.lib.modules import trakt
